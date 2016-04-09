@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>message</title>
+    <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-sm-8">
+            <div class="panel panel-white post panel-shadow">
+                <div class="post-heading">
+                    <div class="pull-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                    <div class="pull-left meta">
+                        <div class="title h5">
+                            <a href="#"><b>Ryan Haywood</b></a> made a post.
+                        </div>
+                        <h6 class="text-muted time">1 minute ago</h6>
+                    </div>
+                </div>
+                <div class="post-description">
+                    <p>Bootdey is a gallery of free snippets resources templates and utilities for bootstrap css hmtl js framework. Codes for developers and web designers</p>
+                    
+                </div>
+                <div class="post-footer" id="#messagebox">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <script id='template' type='text/ractive'>
+        
+        <input type="text" name="name" id="name" placeholder="type your name">
+        <form accept-charset="UTF-8" action="" method="POST">
+            <textarea id="message" class="form-control counted" name="message" placeholder="Type in your message" rows="5" style="margin-bottom:10px;"></textarea>
+            <h6 class="pull-right" id="counter">320 characters remaining</h6>
+            <button on-click='postMessage' class="btn btn-info" type="submit">Post New Message</button>
+        </form>
+         {{#each comment}}
+        <ul class="comments-list" >
+            <li class="comment">
+                <a class="pull-left" href="#">
+                    <img class="avatar" src="http://bootdey.com/img/Content/user_1.jpg" alt="avatar">
+                </a>
+                <div class="comment-body">
+                    <div class="comment-heading">
+                        <h4 class="user">{{name}}</h4>
+                        <h5 class="time">{{time}}</h5>
+                    </div>
+                    <p>{{message}}</p>
+                </div>
+                <div class="stats">
+                    
+                    <button on-click='like:{{this}},{{key}}'  class="btn btn-default stat-item">
+                        <i class="fa fa-thumbs-up icon"></i>{{like}}
+                    </button>
+                    <button on-click='unlike:{{this}},{{key}}' class="btn btn-default stat-item">
+                        <i class="fa fa-thumbs-down icon"></i>{{unlike}}
+                    </button>
+                </div>
+            </li>
+        </ul>
+        {{/each}}
+    </script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
+    <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
